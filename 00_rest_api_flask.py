@@ -4,11 +4,11 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Load your geojson and SING data once (outside the route for efficiency)
-primary_cabins = gpd.read_file(r"D:\dev\synthetic-grids\synth-grids\repositories\primary_cabins.geojson")
-consumption_profiles =  pd.read_csv('consumption_profiles.csv')  # Assuming your SING data is in CSV format
 
-# Example function to filter substations, borders, and buildings based on IDs
+primary_cabins = gpd.read_file(r"D:\dev\synthetic-grids\synth-grids\repositories\primary_cabins.geojson")
+consumption_profiles =  pd.read_csv('consumption_profiles.csv') 
+
+
 def get_filtered_data(substation_id, border_id, building_id):
     # Filter the geojson data (primary_cabins) based on input IDs
     filtered_geo = primary_cabins[
